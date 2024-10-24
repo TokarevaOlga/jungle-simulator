@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
         Tiger tiger = new Tiger();
-        EventSimulator eventSimulator= new EventSimulator(); // создаем объект класса, тк класс не static
+        EventSimulator eventSimulator = new EventSimulator(); // создаем объект класса, тк класс не static
         eventSimulator.startSimulation(tiger);
     }
 }

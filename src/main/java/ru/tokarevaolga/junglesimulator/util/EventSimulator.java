@@ -29,7 +29,7 @@ public class EventSimulator {
                 diseaseEvent(tiger);
             } else if (eventNumber >= 85 && eventNumber < 90) {
                 fightEvent(tiger);
-            } else if (eventNumber >= 90 && eventNumber <= 100) {
+            } else if (eventNumber >= 90 && eventNumber < 100) {
                 hunterAttackEvent(tiger);
             }
             try {
@@ -44,9 +44,10 @@ public class EventSimulator {
     private void sleepEvent(Tiger tiger) { // Событие 1. Тигр поспал.
         int energy = tiger.getEnergy();
         energy = energy + 7;
-        if (energy > 100) {
+        /*if (energy > 100) {
             energy = 100;
-        }
+        }*/
+        energy = tiger.levelCorrector(energy);//новый метод
         tiger.setEnergy(energy);
         checkEnergy(tiger);
         System.out.println("Тигр поспал! +7 энергии. Текущая энергия: " + tiger.getEnergy());
@@ -55,9 +56,10 @@ public class EventSimulator {
     private void moveEvent(Tiger tiger) { // Событие 2. Тигр побегал.
         int energy = tiger.getEnergy();
         energy = energy - 5;
-        if (energy < 0) {
+        /*if (energy < 0) {
             energy = 0;
-        }
+        }*/
+        energy = tiger.levelCorrector(energy);//новый метод
         tiger.setEnergy(energy);
         checkEnergy(tiger);
         System.out.println("Тигр побегал! -5 энергии. Текущая энергия: " + tiger.getEnergy());
@@ -67,13 +69,15 @@ public class EventSimulator {
         int energy = tiger.getEnergy();
         int health = tiger.getHealth();
         energy = energy - 7;
-        if (energy < 0) {
+       /* if (energy < 0) {
             energy = 0;
-        }
+        }*/
+        energy = tiger.levelCorrector(energy);//новый метод
         health = health + (int) (tiger.getFangs() * 4);
-        if (health > 100) {
+        /*if (health > 100) {
             health = 100;
-        }
+        }*/
+        health = tiger.levelCorrector(health);//новый метод
         tiger.setEnergy(energy);
         tiger.setHealth(health);
         checkEnergy(tiger);
@@ -84,13 +88,15 @@ public class EventSimulator {
         int energy = tiger.getEnergy();
         int health = tiger.getHealth();
         energy = energy - 5;
-        if (energy < 0) {
+       /* if (energy < 0) {
             energy = 0;
-        }
+        }*/
+        energy = tiger.levelCorrector(energy);//новый метод
         health = health + (int) (tiger.getFangs() * 3);
-        if (health > 100) {
+       /* if (health > 100) {
             health = 100;
-        }
+        }*/
+        health = tiger.levelCorrector(health);//новый метод
         tiger.setEnergy(energy);
         tiger.setHealth(health);
         checkEnergy(tiger);
@@ -101,13 +107,15 @@ public class EventSimulator {
         int energy = tiger.getEnergy();
         int health = tiger.getHealth();
         energy = energy - 2;
-        if (energy < 0) {
+        /*if (energy < 0) {
             energy = 0;
-        }
+        }*/
+        energy = tiger.levelCorrector(energy);//новый метод
         health = health + (int) (tiger.getFangs() * 2);
-        if (health > 100) {
+        /*if (health > 100) {
             health = 100;
-        }
+        }*/
+        health = tiger.levelCorrector(health);//новый метод
         tiger.setEnergy(energy);
         tiger.setHealth(health);
         checkEnergy(tiger);
@@ -117,9 +125,10 @@ public class EventSimulator {
     private void eatFruitEvent(Tiger tiger) { // Событие 6. Тигр съел фрукт.
         int health = tiger.getHealth();
         health = health + (int) (tiger.getFangs() * 1);
-        if (health > 100) {
+       /* if (health > 100) {
             health = 100;
-        }
+        }*/
+        health = tiger.levelCorrector(health);//новый метод
         tiger.setHealth(health);
         checkEnergy(tiger);
         System.out.println("Тигр съел фрукт! Улучшил здоровье до " + tiger.getHealth());
@@ -129,13 +138,15 @@ public class EventSimulator {
         int energy = tiger.getEnergy();
         int health = tiger.getHealth();
         energy = energy + 3;
-        if (energy > 100) {
+       /* if (energy > 100) {
             energy = 100;
-        }
+        }*/
+        energy = tiger.levelCorrector(energy);//новый метод
         health = health + (int) (tiger.getFangs() * 2);
-        if (health > 100) {
+       /* if (health > 100) {
             health = 100;
-        }
+        }*/
+        health = tiger.levelCorrector(health);//новый метод
         tiger.setEnergy(energy);
         tiger.setHealth(health);
         checkEnergy(tiger);
@@ -145,9 +156,10 @@ public class EventSimulator {
     private void diseaseEvent(Tiger tiger) { // Событие 8. Тигр заболел.
         int health = tiger.getHealth();
         health = health - 10;
-        if (health < 0) {
+        /*if (health < 0) {
             health = 0;
-        }
+        }*/
+        health = tiger.levelCorrector(health);//новый метод
         tiger.setHealth(health);
         checkEnergy(tiger);
         System.out.println("Тигр заболел! -10 здоровья. Текущее здоровье: " + tiger.getHealth());
@@ -157,13 +169,15 @@ public class EventSimulator {
         int health = tiger.getHealth();
         int energy = tiger.getEnergy();
         health = health - 10;
-        if (health < 0) {
+        /*if (health < 0) {
             health = 0;
-        }
+        }*/
+        health = tiger.levelCorrector(health);//новый метод
         energy = energy - 20;
-        if (energy < 0) {
+       /* if (energy < 0) {
             energy = 0;
-        }
+        }*/
+        energy = tiger.levelCorrector(energy);//новый метод
         tiger.setHealth(health);
         tiger.setEnergy(energy);
         checkEnergy(tiger);
@@ -173,9 +187,10 @@ public class EventSimulator {
     private void hunterAttackEvent(Tiger tiger) { // Событие 10. На тигра напали охотники.
         int health = tiger.getHealth();
         health = health - 20;
-        if (health < 0) {
+       /* if (health < 0) {
             health = 0;
-        }
+        }*/
+        health = tiger.levelCorrector(health);//новый метод
         tiger.setHealth(health);
         checkEnergy(tiger);
         System.out.println("Напали охотники! -20 здоровья. Текущее здоровье: " + tiger.getHealth());
@@ -185,11 +200,14 @@ public class EventSimulator {
     //false - умер
     private boolean checkStatus(Tiger tiger) {
         System.out.println("hp: " + tiger.getHealth() + " energy: " + tiger.getEnergy());
-        if (tiger.getHealth() <= 0) {
+        /*if (tiger.getHealth() <= 0) {                   //это надо сделать в одной строке
             return false;
         } else {
             return true;
-        }
+        }*/
+        if (tiger.getHealth() <= 0) return false;
+        else return true;                                //сделала в одной строке, Alt+Ctrl+L разбивает на две
+
     }
 
     private void checkEnergy(Tiger tiger) { // Если энергия падает до 0, то здоровье уменьшается на 5 пунктов.
@@ -204,3 +222,4 @@ public class EventSimulator {
         }
     }
 }
+

@@ -11,11 +11,11 @@ public class Tiger {
     }
 
     public int getHealth() {
-        return this.health;
+        return health;
     }
 
     public int getEnergy() {
-        return this.energy;
+        return energy;
     }
 
     public void setEnergy(int energy) {
@@ -23,6 +23,16 @@ public class Tiger {
     }
 
     public double getFangs() {
-        return this.fangs;
+        return fangs;
+    }
+
+    public int levelCorrector(int x) { //новый метод для проверки/корректировки уровня energy/health
+        if (x < 0) {
+            x = 0;
+        }
+        if (x > 100) {
+            x = 100;
+        }
+        return x;
     }
 }

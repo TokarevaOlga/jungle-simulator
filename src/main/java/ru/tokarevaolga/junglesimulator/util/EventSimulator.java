@@ -205,9 +205,9 @@ public class EventSimulator {
         } else {
             return true;
         }*/
-        if (tiger.getHealth() <= 0) return false;
-        else return true;                                //сделала в одной строке, Alt+Ctrl+L разбивает на две
-
+        /*if (tiger.getHealth() <= 0) return false;
+        else return true;                                //сделала в одной строке, Alt+Ctrl+L разбивает на две*/
+        return tiger.getHealth() > 0;
     }
 
     private void checkEnergy(Tiger tiger) { // Если энергия падает до 0, то здоровье уменьшается на 5 пунктов.

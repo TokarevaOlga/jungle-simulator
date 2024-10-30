@@ -4,14 +4,13 @@ public class Tiger {
 
     private int health = 100; // health points (сокращённо hp для статуса баланса)
     private int energy = 100;
-    private final double fangs = 2.5; // fangs energy producing coefficient
-
-    public void setHealth(int health) { // сюда приходит какое-то значение health
-        this.health = health; // пришедшее нам health
-    }
+    private final double Fangs = 2.5; // fangs energy producing coefficient. Правка: имена констант писать с большой буквы.
 
     public int getHealth() {
         return health;
+    }
+    public void setHealth(int health) { // сюда приходит какое-то значение health
+        this.health = health; // пришедшее нам health
     }
 
     public int getEnergy() {
@@ -23,14 +22,14 @@ public class Tiger {
     }
 
     public double getFangs() {
-        return fangs;
+        return Fangs;
     }
 
     public int levelCorrector(int x) { //новый метод для проверки/корректировки уровня energy/health
         if (x < 0) {
             x = 0;
         }
-        if (x > 100) {
+        else if (x > 100){
             x = 100;
         }
         return x;
